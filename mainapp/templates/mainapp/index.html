@@ -135,27 +135,15 @@
             <section class="gallery" id="gallery">
                 <a class="contact_heading_a" href="{% url 'products' %}"><p class="heading gallery_heading">Our Gallery</p></a>
                 <div class="gallery_blocks">
+
+                    {% for product in products %}
                     <div class="gallery_block">
-                        <img src="{% static 'img/pryamougolnik_8_186.jpg' %}" alt="assassins creed">
-                        <p class="gallery_text">Assasin’s Creed: <span class="gallery_text_span">Rogue</span></p>
-                        <button class="red_button gallery_button" onclick="window.location.href = {% url 'product' %};" title="Кликни на меня">Buy</button>
+                        <img src="{% static product.image %}" alt="{{ product.alt }}">
+                        <p class="gallery_text gallery_text_two_strings">{{ product.name }}<br><span class="gallery_text_span">{{ product.nameSpan }}</span></p>
+                        <button class="red_button gallery_button" onclick="window.location.href = {% url product.click %};">Buy</button>
                     </div>
-                    <!-- как заменить /product/ на {% url "product" %} ?? -->
-                    <div class="gallery_block">
-                        <img src="{% static 'img/pryamougolnik_8_178.jpg' %}" alt="Tomb Raider">
-                        <p class="gallery_text">Tomb Raider</p>
-                        <button class="red_button gallery_button">Buy</button>
-                    </div>
-                    <div class="gallery_block">
-                        <img src="{% static 'img/pryamougolnik_8_183.jpg' %}" alt="Ryse">
-                        <p class="gallery_text">Ryse: <span class="gallery_text_span">Son Of Rome</span></p>
-                        <button class="red_button gallery_button">Buy</button>
-                    </div>
-                    <div class="gallery_block">
-                        <img src="{% static 'img/pryamougolnik_8_189.jpg' %}" alt="World Of Warcraft">
-                        <p class="gallery_text gallery_text_two_strings">World Of Warcraft:<br><span class="gallery_text_span">Wrath Of The Linch King</span></p>
-                        <button class="red_button gallery_button">Buy</button>
-                    </div>
+                    {% endfor %}
+
                 </div>
             </section>
 
@@ -287,82 +275,29 @@
             <section class="team" id="team">
                 <p class="heading team_heading">Our Team</p>
                 <div class="team_images">
-                    <div class="team_image">
-                        <img src="{% static 'img/pryamougolnik_6_127.jpg' %}" alt="Mary Jane">
-                        <p class="team_name">Mary Jane</p>
-                        <p class="team_text">Vestibulum</p>
-                        <div class="team_icons">
-                            <div class="team_icon">
-                                <img src="{% static 'img/facebook_logo_50.png' %}" alt="facebook">
-                            </div>
-                            <div class="team_icon">
-                                <img src="{% static 'img/twitter_logo_silhouette_56.png' %}" alt="twitter">
-                            </div>
-                            <div class="team_icon">
-                                <img src="{% static 'img/rss_feed_suscription_button_symbol_for_interface_57.png' %}" alt="rss">
-                            </div>
-                            <div class="team_icon">
-                                <img src="{% static 'img/vk_social_network_logo_48.png' %}" alt="vk">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="team_image">
-                        <img src="{% static 'img/pryamougolnik_6_128.jpg' %}" alt="Peter Parker">
-                        <p class="team_name">Peter Parker</p>
-                        <p class="team_text">Vestibulum</p>
-                        <div class="team_icons">
-                            <div class="team_icon">
-                                <img src="{% static 'img/facebook_logo_50.png' %}" alt="facebook">
-                            </div>
-                            <div class="team_icon">
-                                <img src="{% static 'img/twitter_logo_silhouette_56.png' %}" alt="twitter">
-                            </div>
-                            <div class="team_icon">
-                                <img src="{% static 'img/rss_feed_suscription_button_symbol_for_interface_57.png' %}" alt="rss">
-                            </div>
-                            <div class="team_icon">
-                                <img src="{% static 'img/vk_social_network_logo_48.png' %}" alt="vk">
+
+                    {% for team in team %}
+                        <div class="team_image">
+                            <img src="{% static team.image %}" alt="{{ team.alt }}">
+                            <p class="team_name">{{ team.name }}</p>
+                            <p class="team_text">Vestibulum</p>
+                            <div class="team_icons">
+                                <div class="team_icon">
+                                    <img src="{% static 'img/facebook_logo_50.png' %}" alt="facebook">
+                                </div>
+                                <div class="team_icon">
+                                    <img src="{% static 'img/twitter_logo_silhouette_56.png' %}" alt="twitter">
+                                </div>
+                                <div class="team_icon">
+                                    <img src="{% static 'img/rss_feed_suscription_button_symbol_for_interface_57.png' %}" alt="rss">
+                                </div>
+                                <div class="team_icon">
+                                    <img src="{% static 'img/vk_social_network_logo_48.png' %}" alt="vk">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="team_image">
-                        <img src="{% static 'img/pryamougolnik_6_129.jpg' %}" alt="John Watson">
-                        <p class="team_name">John Watson</p>
-                        <p class="team_text">Vestibulum</p>
-                        <div class="team_icons">
-                            <div class="team_icon">
-                                <img src="{% static 'img/facebook_logo_50.png' %}" alt="facebook">
-                            </div>
-                            <div class="team_icon">
-                                <img src="{% static 'img/twitter_logo_silhouette_56.png' %}" alt="twitter">
-                            </div>
-                            <div class="team_icon">
-                                <img src="{% static 'img/rss_feed_suscription_button_symbol_for_interface_57.png' %}" alt="rss">
-                            </div>
-                            <div class="team_icon">
-                                <img src="{% static 'img/vk_social_network_logo_48.png' %}" alt="vk">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="team_image">
-                        <img src="{% static 'img/pryamougolnik_6_130.jpg' %}" alt="Steven Wilson">
-                        <p class="team_name">Steven Wilson</p>
-                        <p class="team_text">Vestibulum</p>
-                        <div class="team_icons">
-                            <div class="team_icon">
-                                <img src="{% static 'img/facebook_logo_50.png' %}" alt="facebook">
-                            </div>
-                            <div class="team_icon">
-                                <img src="{% static 'img/twitter_logo_silhouette_56.png' %}" alt="twitter">
-                            </div>
-                            <div class="team_icon">
-                                <img src="{% static 'img/rss_feed_suscription_button_symbol_for_interface_57.png' %}" alt="rss">
-                            </div>
-                            <div class="team_icon">
-                                <img src="{% static 'img/vk_social_network_logo_48.png' %}" alt="vk">
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
+
                 </div>
             </section>
 

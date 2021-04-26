@@ -14,46 +14,15 @@
             <section class="gallery products_gallery" id="gallery">
                 <p class="heading gallery_heading products_gallery_heading">Our Gallery</p>
                 <div class="gallery_blocks products_gallery_blocks">
+
+                    {% for product in products %}
                     <div class="gallery_block products_gallery_block">
-                        <img src="{% static 'img/3.jpg' %}" alt="battlefield 1">
-                        <p class="gallery_text">battlefield 1</p>
-                        <button class="red_button gallery_button">Buy</button>
+                        <img src="{% static product.image %}" alt="{{ product.alt }}">
+                        <p class="gallery_text gallery_text_two_strings">{{ product.name }}<br><span class="gallery_text_span">{{ product.nameSpan }}</span></p>
+                        <button class="red_button gallery_button" onclick="window.location.href = {% url product.click %};">Buy</button>
                     </div>
-                    <div class="gallery_block products_gallery_block">
-                        <img src="{% static 'img/1.jpg' %}" alt="star wars">
-                        <p class="gallery_text gallery_text_two_strings">star wars:<br><span class="gallery_text_span">Battlefront II</span></p>
-                        <button class="red_button gallery_button">Buy</button>
-                    </div>
-                    <div class="gallery_block products_gallery_block">
-                        <img src="{% static 'img/2.jpg' %}" alt="BATTLEFIELD 4">
-                        <p class="gallery_text">BATTLEFIELD 4</p>
-                        <button class="red_button gallery_button">Buy</button>
-                    </div>
-                    <div class="gallery_block products_gallery_block">
-                        <img src="{% static 'img/4.jpg' %}" alt="world of tanks">
-                        <p class="gallery_text gallery_text_two_strings">world of tanks</p>
-                        <button class="red_button gallery_button">Buy</button>
-                    </div>
-                    <div class="gallery_block products_gallery_block">
-                        <img src="{% static 'img/pryamougolnik_8_186.jpg' %}" alt="assassins creed">
-                        <p class="gallery_text gallery_text_two_strings">Assasin’s Creed:<br><span class="gallery_text_span">Rogue</span></p>
-                        <button class="red_button gallery_button" onclick="window.location.href = {% url 'product' %};">Buy</button>
-                    </div>
-                    <div class="gallery_block products_gallery_block">
-                        <img src="{% static 'img/7.jpg' %}" alt="for honor">
-                        <p class="gallery_text">for honor</p>
-                        <button class="red_button gallery_button">Buy</button>
-                    </div>
-                    <div class="gallery_block products_gallery_block">
-                        <img src="{% static 'img/6.jpg' %}" alt="world of warships">
-                        <p class="gallery_text">world of warships</p>
-                        <button class="red_button gallery_button">Buy</button>
-                    </div>
-                    <div class="gallery_block products_gallery_block">
-                        <img src="{% static 'img/5.jpg' %}" alt="call of duty">
-                        <p class="gallery_text gallery_text_two_strings">call of duty:<br><span class="gallery_text_span">Infinite Warface</span></p>
-                        <button class="red_button gallery_button">Buy</button>
-                    </div>
+                    {% endfor %}
+
                 </div>
                 <button class="products_gallery_button">Show more games</button>
             </section>
@@ -61,25 +30,21 @@
             <section class="discount">
                 <div class="discount_blocks">
                     <div class="discount_block">
-
-                        <img class="discount_img" src="{% static 'img/pryamougolnik_25_1380.png' %}" alt="CALL OF DUTY">
-
+                        <img class="discount_img" src="{% static discount_first.image %}" alt="{{ discount_first.alt }}">
                         <div class="discount_img_text">
                             <p class="discount_img_text_discount">discount</p>
-                            <p class="discount_img_text_game">CALL OF DUTY:<br><span class="discount_img_text_game_span">Modern Warfare 3</span></p>
-                            <p class="discount_img_text_price">$14.44<span class="discount_img_text_price_span1">/ <span class="discount_img_text_price_span2">$28.90</span></span></p>
-                            <button class="red_button discount_img_text_button">Buy</button>
+                            <p class="discount_img_text_game">{{ discount_first.name }}<br><span class="discount_img_text_game_span">{{ discount_first.nameSpan }}</span></p>
+                            <p class="discount_img_text_price">{{ discount_first.price }}<span class="discount_img_text_price_span1">/ <span class="discount_img_text_price_span2">{{ discount_first.priceSpan }}</span></span></p>
+                            <button class="red_button discount_img_text_button" onclick="window.location.href = {% url discount_first.click %};">Buy</button>
                         </div>
                     </div>
                     <div class="discount_block">
-
-                        <img class="discount_img" src="{% static 'img/pryamougolnik_25_1381.png' %}" alt="MEDAL OF HONOR">
-
+                        <img class="discount_img" src="{% static discount_second.image %}" alt="{{ discount_second.alt }}">
                         <div class="discount_img_text discount_img_text2">
                             <p class="discount_img_text_discount">discount</p>
-                            <p class="discount_img_text_game">MEDAL OF HONOR</p>
-                            <p class="discount_img_text_price">$15.96<span class="discount_img_text_price_span1">/ <span class="discount_img_text_price_span2">$29.99</span></span></p>
-                            <button class="red_button discount_img_text_button">Buy</button>
+                            <p class="discount_img_text_game">{{ discount_second.name }}</p>
+                            <p class="discount_img_text_price">{{ discount_second.price }}<span class="discount_img_text_price_span1">/ <span class="discount_img_text_price_span2">{{ discount_second.priceSpan }}</span></span></p>
+                            <button class="red_button discount_img_text_button" onclick="window.location.href = {% url discount_second.click %};">Buy</button>
                         </div>
                     </div>
                 </div>
