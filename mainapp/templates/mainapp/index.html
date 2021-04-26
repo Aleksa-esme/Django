@@ -138,7 +138,7 @@
                     <div class="gallery_block">
                         <img src="{% static 'img/pryamougolnik_8_186.jpg' %}" alt="assassins creed">
                         <p class="gallery_text">Assasin’s Creed: <span class="gallery_text_span">Rogue</span></p>
-                        <button class="red_button gallery_button" onclick="window.location.href = '/product/';" title="Кликни на меня">Buy</button>
+                        <button class="red_button gallery_button" onclick="window.location.href = {% url 'product' %};" title="Кликни на меня">Buy</button>
                     </div>
                     <!-- как заменить /product/ на {% url "product" %} ?? -->
                     <div class="gallery_block">
