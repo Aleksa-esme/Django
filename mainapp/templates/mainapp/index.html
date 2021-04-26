@@ -276,10 +276,10 @@
                 <p class="heading team_heading">Our Team</p>
                 <div class="team_images">
 
-                    {% for team in team %}
+                    {% for member in team %}
                         <div class="team_image">
-                            <img src="{% static team.image %}" alt="{{ team.alt }}">
-                            <p class="team_name">{{ team.name }}</p>
+                            <img src="{% static member.image %}" alt="{{ member.alt }}">
+                            <p class="team_name">{{ member.name }}</p>
                             <p class="team_text">Vestibulum</p>
                             <div class="team_icons">
                                 <div class="team_icon">
