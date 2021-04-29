@@ -17,9 +17,9 @@
 
                     {% for product in products %}
                     <div class="gallery_block products_gallery_block">
-                        <img src="{% static product.image %}" alt="{{ product.alt }}">
-                        <p class="gallery_text gallery_text_two_strings">{{ product.name }}<br><span class="gallery_text_span">{{ product.nameSpan }}</span></p>
-                        <button class="red_button gallery_button" onclick="window.location.href = {% url product.click %};">Buy</button>
+                        <img src="/media/{{ product.image }}" alt="">
+                        <p class="gallery_text gallery_text_two_strings">{{ product.name }}<br><span class="gallery_text_span"></span></p>
+                        <button class="red_button gallery_button">Buy</button>
                     </div>
                     {% endfor %}
 
