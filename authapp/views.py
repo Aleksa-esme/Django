@@ -1,5 +1,21 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect
+from django.contrib import auth
+from django.urls import reverse
+
+from authapp.forms import UserLoginForm
 
 def login(request):
-    context = {'title': 'Authorizing'}
+    if request.method == 'POST':
+        form = UserLoginForm(data=request.POST)
+        if form.is_valid():
+            username = request.POST['username']
+            password = request.POST['password']
+            user = auth.authenticate(username = username, password = password)
+            if user and user.is_active:
+                auth.login(request, user)
+                return HttpResponseRedirect(reverse('main'))
+    else:
+        form = UserLoginForm()
+        context = {'title': 'Authorizing',
+                   'form': form}
     return render(request, 'authapp/login.html', context)
