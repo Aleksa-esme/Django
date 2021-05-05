@@ -31,3 +31,7 @@ def register(request):
         context = {'title': 'Registration',
                    'form': form}
     return render(request, 'authapp/register.html', context)
+
+def logout(request):
+    auth.logout(request)
+    return HttpResponseRedirect(reverse('main'))
