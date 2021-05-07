@@ -47,10 +47,13 @@
             <nav class="header_nav">
                 <a class="header_nav_a header_text contacts_header_text" href="{% url 'main' %}">Home</a>
                 <a class="header_nav_a header_text contacts_header_text" href="{% url 'main' %}#about">About</a>
-                <a class="header_nav_a header_text contacts_header_text" href="{% url 'main' %}#services">Services</a>
                 <a class="header_nav_a header_text contacts_header_text" href="{% url 'products:index' %}">Gallery</a>
-                <a class="header_nav_a header_text contacts_header_text" href="{% url 'main' %}#events">News</a>
-                <a class="header_nav_a header_text contacts_header_text" href="{% url 'main' %}#team">Team</a>
+                {% if user.is_authenticated %}
+                <a class="header_nav_a header_text contacts_header_text" href="{% url 'main' %}#services">Alexa</a>
+                <a class="header_nav_a header_text contacts_header_text" href="{% url 'users:logout' %}">Sign-Out</a>
+                {% else %}
+                <a class="header_nav_a header_text contacts_header_text" href="{% url 'users:login' %}">Sign in</a>
+                {% endif %}
                 <a class="header_nav_a header_text contacts_header_text" href="{% url 'contacts' %}">Contact Us</a>
             </nav>
 
