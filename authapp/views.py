@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponseRedirect
-from django.contrib import auth
+from django.contrib import auth, messages
 from django.urls import reverse
 
 from authapp.forms import UserLoginForm, UserRegisterForm
@@ -14,8 +14,6 @@ def login(request):
             if user and user.is_active:
                 auth.login(request, user)
                 return HttpResponseRedirect(reverse('main'))
-        else:
-            print(form.errors)
     else:
         form = UserLoginForm()
     context = {'title': 'Authorizing', 'form': form}
@@ -26,9 +24,8 @@ def register(request):
         form = UserRegisterForm(data=request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Вы успешно зарегистрировались!')
             return HttpResponseRedirect(reverse('users:login'))
-        else:
-            print(form.errors)
     else:
         form = UserRegisterForm()
     context = {'title': 'Registration', 'form': form}
