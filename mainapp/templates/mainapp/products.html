@@ -19,7 +19,7 @@
                     <div class="gallery_block products_gallery_block">
                         <img src="/media/{{ product.image }}" alt="">
                         <p class="gallery_text gallery_text_two_strings">{{ product.name }}<br><span class="gallery_text_span"></span></p>
-                        <a class="red_button gallery_button" href="product.html">Buy</a>
+                        <a class="red_button gallery_button" href="{% url 'baskets:basket_add' product.id %}">Buy</a>
                     </div>
                     {% endfor %}
 
