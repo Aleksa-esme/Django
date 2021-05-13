@@ -14,10 +14,11 @@ def login(request):
             if user and user.is_active:
                 auth.login(request, user)
                 return HttpResponseRedirect(reverse('main'))
+        else:
+            print(form.errors)
     else:
         form = UserLoginForm()
-        context = {'title': 'Authorizing',
-                   'form': form}
+    context = {'title': 'Authorizing', 'form': form}
     return render(request, 'authapp/login.html', context)
 
 def register(request):
@@ -26,10 +27,11 @@ def register(request):
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('users:login'))
+        else:
+            print(form.errors)
     else:
         form = UserRegisterForm()
-        context = {'title': 'Registration',
-                   'form': form}
+    context = {'title': 'Registration', 'form': form}
     return render(request, 'authapp/register.html', context)
 
 def logout(request):

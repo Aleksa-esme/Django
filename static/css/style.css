@@ -150,6 +150,13 @@ body {
   font-family: "Poppins";
   border: unset;
   color: #ffffff;
+  text-decoration: none;
+  text-align: center;
+  padding-top: 3px;
+}
+
+.red_button:hover {
+  color: #ffffff;
 }
 
 .slider {
