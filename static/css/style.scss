@@ -101,6 +101,12 @@ body {
     font-family: $font_poppins;
     border: unset;
     color: #ffffff;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 3px;
+    &:hover {
+        color: #ffffff;
+    }
 }
 
 .slider {
