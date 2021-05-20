@@ -2,6 +2,7 @@ from django import forms
 
 from authapp.forms import UserRegisterForm, UserProfileForm
 from authapp.models import User
+from mainapp.models import ProductCategory
 
 class UserAdminRegisterForm(UserRegisterForm):
     image = forms.ImageField(widget=forms.FileInput(attrs={'class': 'custom-file-input'}), required=False)
@@ -13,3 +14,10 @@ class UserAdminRegisterForm(UserRegisterForm):
 class UserAdminProfileForm(UserProfileForm):
     username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control py-4'}))
     email = forms.CharField(widget=forms.EmailInput(attrs={'class': 'form-control py-4'}))
+
+class ProductCategoryEditForm(forms.ModelForm):
+    name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control py-4'}))
+    description = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control py-4'}))
+    class Meta:
+        model = ProductCategory
+        fields = '__all__'
