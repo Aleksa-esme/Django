@@ -98,7 +98,7 @@ def admin_categories_remove(request, category_id):
     return HttpResponseRedirect(reverse('admin_staff:admin_categories_read'))
 
 def admin_categories_restore(request, category_id):
-    user = User.objects.get(id=category_id)
-    user.is_active = True
-    user.save()
+    category = ProductCategory.objects.get(id=category_id)
+    category.is_active = True
+    category.save()
     return HttpResponseRedirect(reverse('admin_staff:admin_categories_read'))
