@@ -19,7 +19,7 @@ def main(request):
                    {'name': 'Steven Wilson', 'alt': 'Steven Wilson', 'image': 'img/pryamougolnik_6_130.jpg'},
                ]
                }
-    return render(request, 'mainapp/index.html', context)
+    return render(request, 'mainapp/base.html', context)
 """
 
 def main(request):
