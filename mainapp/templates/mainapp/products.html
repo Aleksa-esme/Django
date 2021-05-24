@@ -12,6 +12,12 @@
     <main>
 
             <section class="gallery products_gallery" id="gallery">
+                <div class="header_nav">
+                    {% for category in categories %}
+                        <a class="header_nav_a header_text contacts_header_text" href="{% url 'mainapp:product' category.id %}">{{ category.name }}</a>
+                    {% endfor %}
+                </div>
+
                 <p class="heading gallery_heading products_gallery_heading">Our Gallery</p>
                 <div class="gallery_blocks products_gallery_blocks">
 

@@ -30,20 +30,24 @@ def main(request):
         }
     return render(request, 'mainapp/index.html', context)
 
-def products(request):
+def products(request, category_id=None):
     context = {'title': 'Games',
-               'products': Product.objects.all(),
-
+               'categories': ProductCategory.objects.all(),
                'discount_first':
-                   {'name': 'CALL OF DUTY:', 'nameSpan': 'Modern Warfare 3', 'price': '$14.44', 'priceSpan': '$28.90', 'alt': 'CALL OF DUTY', 'image': 'img/pryamougolnik_25_1380.png',
-                    'click': 'product'}
-               ,
+                   {'name': 'CALL OF DUTY:', 'nameSpan': 'Modern Warfare 3', 'price': '$14.44', 'priceSpan': '$28.90',
+                    'alt': 'CALL OF DUTY', 'image': 'img/pryamougolnik_25_1380.png',
+                    'click': 'product'},
 
                'discount_second':
-                   {'name': 'MEDAL OF HONOR', 'nameSpan': '', 'alt': 'BATTLEFIELD 1', 'price': '$15.96', 'priceSpan': '$29.99', 'image': 'img/pryamougolnik_25_1381.png',
-                    'click': 'product'}
-
+                   {'name': 'MEDAL OF HONOR', 'nameSpan': '', 'alt': 'BATTLEFIELD 1', 'price': '$15.96',
+                    'priceSpan': '$29.99', 'image': 'img/pryamougolnik_25_1381.png',
+                    'click': 'product'},
                }
+    if category_id:
+        products = Product.objects.filter(category_id=category_id)
+        context.update({'products': products})
+    else:
+        context.update({'products': Product.objects.all()})
     return render(request, 'mainapp/products.html', context)
 
 
